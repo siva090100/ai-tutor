@@ -1,0 +1,20 @@
+<center><h2>{{question.skill_id.skill_name}}</h2></center>
+
+<form action="#" method="post">
+	{% csrf_token %}
+    <h5>Proficiency{{theta}}</h5>
+    <h5>Master Level{{mastery}}</h5>
+    <h4>{{question.problem_text}}</h4>
+    {% if question.answer_type.name == 'answer choice' %}
+    {% for choice in question.answer_object.choices %}
+  <input type="radio" name="{{question.id}}" value = "{{ forloop.counter }}" checked>{{choice}}<br>
+  <hr>
+
+
+    {% endfor %}
+    {% elif question.answer_type.name == 'answer text'%}
+    <input type="text" name="{{question.id}}" ><br>
+   {% endif %}
+  
+   <input type = "submit" value = "Next" />
+</form> 

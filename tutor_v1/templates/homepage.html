@@ -1,0 +1,9 @@
+
+{% block content %}
+  <p>
+  	{% for skill in skills %}
+  	<h5><a href = "/ai-tutor/skill-home/{{skill.id}}">{{skill.skill_name}}</a></h5>
+  	<br>
+  	{% endfor %}
+
+{% endblock %}
